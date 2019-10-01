@@ -38,7 +38,7 @@ router.post('/:id/comments', (req, res) => {
             } else {
                 Posts.insertComment(commData)
                 .then(comment => {
-                    res.status(201).json(comment);
+                    res.status(201).json(commData);
                 })
                 .catch(err => {
                     res.status(500).json({ error: "There was an error while saving the comment to the database" })
