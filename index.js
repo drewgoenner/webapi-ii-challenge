@@ -8,6 +8,7 @@ server.use(express.json());
 
 server.use('/api/posts', postsRouter);
 
+//get the base url
 server.get('/', (req, res) => {
     res.send(`
     <h2>Andrew's Posts API</h2>`)

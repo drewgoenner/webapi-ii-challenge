@@ -4,6 +4,7 @@ const Posts = require('./db.js');
 
 const router = express.Router();
 
+//add a new post 
 router.post('/', (req, res) => {
     const postData = req.body;
 
@@ -21,6 +22,7 @@ router.post('/', (req, res) => {
     };
 });
 
+//add a new comment
 router.post('/:id/comments', (req, res) => {
     const id = req.params.id;
     const commData = {
@@ -49,6 +51,7 @@ router.post('/:id/comments', (req, res) => {
     
 });
 
+//get all posts
 router.get('/', (req, res) => {
     Posts.find()
     .then(posts => {
@@ -59,6 +62,7 @@ router.get('/', (req, res) => {
     })
 });
 
+//get a post by id
 router.get('/:id', (req, res) => {
     const id = req.params.id;
     console.log(id)
@@ -77,6 +81,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
+//get list of comments by post id
 router.get('/:id/comments', (req, res) => {
     const id = req.params.id
 
@@ -93,6 +98,7 @@ router.get('/:id/comments', (req, res) => {
     })
 });
 
+//delete a post by id
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
 
@@ -112,6 +118,7 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+//update a post by id
 router.put('/:id', (req, res) => {
     const id = req.params.id;
     const updatedPost = req.body;
